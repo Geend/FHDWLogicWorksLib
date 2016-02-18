@@ -1,0 +1,159 @@
+\documentclass[11pt]{report}
+
+\usepackage[utf8]{inputenc}
+
+%%% PAGE DIMENSIONS
+\usepackage{geometry} % to change the page dimensions
+\geometry{a4paper} % or letterpaper (US) or a5paper or....
+\geometry{top=2.5cm}
+\geometry{right=2cm}
+\geometry{bottom=2.5cm}
+\geometry{left=4cm}
+
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[style=verbose-ibid, bibstyle=numeric, backend=bibtex, block=space, bibencoding=ascii, sorting=nty, defernumbers=true]{biblatex}
+\bibliography{Praxisarbeit}
+\usepackage{csquotes}
+\usepackage{hyperref}
+\usepackage[nonumberlist]{glossaries}  
+\usepackage{titlesec}
+\usepackage[normalem]{ulem}
+\usepackage{nameref}
+\usepackage{pdfpages}
+\usepackage{framed}
+\usepackage[ngerman]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{paralist}
+\usepackage{verbatim}
+\usepackage{subfig}
+\usepackage{multicol}
+\usepackage{caption}
+\usepackage{footnote}
+\usepackage{listings}
+\usepackage{color}
+\usepackage{selinput}
+\SelectInputMappings{
+	adieresis={ä},
+	germandbls={ß}
+}
+\usepackage{babel}
+\usepackage{ulem}
+
+
+% Spezialpakete
+
+\usepackage{tikz}
+% TikZ-Bibliotheken
+\usetikzlibrary{arrows}
+\usetikzlibrary{shapes}
+\usetikzlibrary{decorations.pathmorphing}
+\usetikzlibrary{decorations.pathreplacing}
+\usetikzlibrary{decorations.shapes}
+\usetikzlibrary{decorations.text}
+
+%%%% FOR CODE OUTPUT %%%%
+\usepackage{listings}
+\usepackage{color}
+\definecolor{lightgray}{rgb}{.9,.9,.9}
+\definecolor{darkgray}{rgb}{.4,.4,.4}
+\definecolor{purple}{rgb}{0.65, 0.12, 0.82}
+
+\lstdefinelanguage{JavaScript}{
+	keywords={typeof, new, true, false, catch, function, return, null, catch, switch, var, if, in, while, do, else, case, break},
+	keywordstyle=\color{blue}\bfseries,
+	ndkeywords={class, export, boolean, throw, implements, import, this},
+	ndkeywordstyle=\color{darkgray}\bfseries,
+	identifierstyle=\color{black},
+	sensitive=false,
+	comment=[l]{//},
+	morecomment=[s]{/*}{*/},
+	commentstyle=\color{purple}\ttfamily,
+	stringstyle=\color{red}\ttfamily,
+	morestring=[b]',
+	morestring=[b]"
+}
+
+\lstset{
+	language=JavaScript,
+	backgroundcolor=\color{lightgray},
+	extendedchars=true,
+	basicstyle=\footnotesize\ttfamily,
+	showstringspaces=false,
+	showspaces=false,
+	numbers=left,
+	numberstyle=\footnotesize,
+	numbersep=9pt,
+	tabsize=4,
+	breaklines=true,
+	showtabs=false,
+	captionpos=b
+}
+
+
+%%% HEADERS & FOOTERS
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\renewcommand{\headrulewidth}{0pt}
+\lhead{}\chead{}\rhead{}
+\lfoot{}\cfoot{\thepage}\rfoot{}
+\usepackage[default,osfigures,scale=0.95]{opensans} %% 
+\usepackage[T1]{fontenc}
+
+%%% ToC (table of contents) APPEARANCE
+\usepackage[nottoc,notlof,notlot]{tocbibind}
+\usepackage[titles,subfigure]{tocloft}
+\renewcommand{\cftsecfont}{\rmfamily\mdseries\upshape}
+\renewcommand{\cftsecpagefont}{\rmfamily\mdseries\upshape}
+
+\newcommand{\HRule}[1]{\rule{\linewidth}{#1}} 	% Horizontal rule
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\titleformat{\chapter}{\normalfont\huge}{\thechapter.}{20pt}{\huge\it}
+
+\begin{document}
+	\begin{titlepage}
+		\begin{center}
+			% Upper part of the page. The '~' is needed because \\
+			% only works if a paragraph has started.
+		%	\includegraphics[width=0.35\textwidth]{./images/logo}
+			~\\ [1.0cm]
+			
+			\textsc{\Large Spezifikation}\\[0.5cm]
+			
+			% Title
+			\HRule{0.5pt} \\[0.4cm]
+			{ \huge \bfseries Flexible ALU \\[0.4cm] }
+			\HRule{2pt} \\[2.5cm]
+		\end{center}
+		
+
+		
+		\vfill
+		\begin{flushright}
+			HFI414\\
+			Q1 2016\\
+			Torben Voltmer\\
+			Sarah Wöckener\\
+		\end{flushright}
+	\end{titlepage}
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+	\chapter{Datenblatt}
+		
+	\section{bloa}
+
+	\chapter{Spezifikation}
+		
+	\section{bloa}
+
+	\begin{figure}[htbp]
+		\begin{center}
+			\includegraphics[width=\textwidth]{inneresBlockschaltbild}
+			\caption{Inneres Blockschaltbild}
+		\end{center}
+	\end{figure}
+\end{document}
