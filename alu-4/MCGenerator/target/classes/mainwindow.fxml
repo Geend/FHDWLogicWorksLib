@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.*?>
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.*?>
-
 <?import javafx.scene.layout.*?>
-
-<GridPane prefHeight="800.0" prefWidth="1000.0" vgap="10.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MainWindowController">
+<GridPane prefHeight="800.0" prefWidth="1000.0" vgap="10.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="net.torbenvoltmer.fhdw.es.mcgenerator.MainWindowController">
    <children>
-      <TableView fx:id="table" prefHeight="170.0" prefWidth="578.0">
+      <TextField fx:id="pathTextField" editable="false" prefHeight="20.0" prefWidth="578.0" />
+      <TableView fx:id="table" prefHeight="170.0" prefWidth="578.0" GridPane.rowIndex="1">
          <columns>
             <TableColumn fx:id="address" text="Address" />
             <TableColumn fx:id="nextAddress" text="Next Address" />
@@ -18,17 +17,18 @@
             <TableColumn fx:id="bFromAccu" text="bFromAccu" />
             <TableColumn fx:id="writeAccuA" text="writeAccuA" />
             <TableColumn fx:id="writeAccuB" text="writeAccuB" />
-            <TableColumn fx:id="writeRegAInt" text = "writeRegAInt" />
-            <TableColumn fx:id="writeRegBInt" text = "writeRegBInt" />
-            <TableColumn fx:id="busy" text = "busy" />
+            <TableColumn fx:id="writeRegAInt" text="writeRegAInt" />
+            <TableColumn fx:id="writeRegBInt" text="writeRegBInt" />
+            <TableColumn fx:id="busy" text="busy" />
 
          </columns>
       </TableView>
-      <HBox prefHeight="100.0" prefWidth="200.0" spacing="10.0" GridPane.rowIndex="1">
+      <HBox prefHeight="100.0" prefWidth="200.0" spacing="10.0" GridPane.rowIndex="2">
          <children>
             <Button fx:id="generateButton" mnemonicParsing="false" onAction="#handleGenerate" text="Generate" />
             <Button fx:id="loadButton" mnemonicParsing="false" onAction="#handleLoad" text="Load" />
             <Button fx:id="saveButton" mnemonicParsing="false" onAction="#handleSave" text="Save" />
+            <Button fx:id="saveAsButton" mnemonicParsing="false" onAction="#handleAsSave" text="Save as" />
          </children>
       </HBox>
    </children>
@@ -36,6 +36,7 @@
       <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
    </columnConstraints>
    <rowConstraints>
+      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="NEVER" />
       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
       <RowConstraints minHeight="40.0" prefHeight="40.0" vgrow="NEVER" />
    </rowConstraints>
