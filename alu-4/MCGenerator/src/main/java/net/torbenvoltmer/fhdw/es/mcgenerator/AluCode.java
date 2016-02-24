@@ -66,11 +66,11 @@ public class AluCode implements Serializable{
     public String toString() {
         String math;
         if(m){
-            math = "M";
+            math = "L";
         }
         else
         {
-            math = "L";
+            math = "H";
         }
 
         return math + boolToChar(s3) + boolToChar(s2) + boolToChar(s1) + boolToChar(s0);
@@ -87,10 +87,10 @@ public class AluCode implements Serializable{
 
 
         if("M".equals(math)) {
-            return new AluCode(true, s3, s2, s1, s0);
+            return new AluCode(false, s3, s2, s1, s0);
         }
         else if("L".equals(math)){
-            return new AluCode(false, s3, s2, s1, s0);
+            return new AluCode(true, s3, s2, s1, s0);
         }
         else{
             throw new RuntimeException("Wrong format");
