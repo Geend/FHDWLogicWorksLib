@@ -1124,8 +1124,7 @@ w=1 schreiben
 AS=1 ALU-start
 EC=1 INC PC
 WAE=1 Write OP A ext
-RAMMUX=1 mux an RAM, sonst register
-RAMMUV=1 ?</panel_attributes>
+RAMMUX=1 mux an RAM, sonst register</panel_attributes>
     <additional_attributes/>
   </element>
 </diagram>
