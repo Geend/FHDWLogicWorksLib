@@ -1,4 +1,17 @@
 \BOOKMARK [0][-]{chapter.1}{Datenblatt}{}% 1
-\BOOKMARK [1][-]{section.1.1}{bloa}{chapter.1}% 2
-\BOOKMARK [0][-]{chapter.2}{Spezifikation}{}% 3
-\BOOKMARK [1][-]{section.2.1}{bloa}{chapter.2}% 4
+\BOOKMARK [1][-]{section.1.1}{Funktionen}{chapter.1}% 2
+\BOOKMARK [1][-]{section.1.2}{Features}{chapter.1}% 3
+\BOOKMARK [1][-]{section.1.3}{Blockschaltbild}{chapter.1}% 4
+\BOOKMARK [2][-]{subsection.1.3.1}{Au\337en}{section.1.3}% 5
+\BOOKMARK [2][-]{subsection.1.3.2}{Innen}{section.1.3}% 6
+\BOOKMARK [1][-]{section.1.4}{Fachliche Beschreibung extern}{chapter.1}% 7
+\BOOKMARK [0][-]{chapter.2}{Spezifikation}{}% 8
+\BOOKMARK [1][-]{section.2.1}{Komponenten}{chapter.2}% 9
+\BOOKMARK [2][-]{subsection.2.1.1}{Register}{section.2.1}% 10
+\BOOKMARK [2][-]{subsection.2.1.2}{Bidirektionale Register}{section.2.1}% 11
+\BOOKMARK [2][-]{subsection.2.1.3}{74\137181}{section.2.1}% 12
+\BOOKMARK [1][-]{section.2.2}{PROM}{chapter.2}% 13
+\BOOKMARK [2][-]{subsection.2.2.1}{Ein-/Ausg\344nge}{section.2.2}% 14
+\BOOKMARK [2][-]{subsection.2.2.2}{Programmierung}{section.2.2}% 15
+\BOOKMARK [1][-]{section.2.3}{Gate-Count}{chapter.2}% 16
+\BOOKMARK [1][-]{section.2.4}{Timing-Diagramm}{chapter.2}% 17
