@@ -18,6 +18,8 @@ public class PromEntry implements Externalizable{
     private SimpleObjectProperty<AluMux> aluMux;
     private SimpleIntegerProperty constant;
 
+    private SimpleObjectProperty<BarrelShifter> barrelShifter;
+
     private SimpleBooleanProperty aFromAccu;
     private SimpleBooleanProperty bFromAccu;
 
@@ -41,6 +43,8 @@ public class PromEntry implements Externalizable{
         aluCode = new SimpleObjectProperty<>(new AluCode(false, false,false,false,false));
         aluMux = new SimpleObjectProperty<>(AluMux.ALU181);
         constant = new SimpleIntegerProperty(0);
+
+        barrelShifter = new SimpleObjectProperty<>(new BarrelShifter(0, false, false));
 
         aFromAccu = new SimpleBooleanProperty(false);
         bFromAccu = new SimpleBooleanProperty(false);
@@ -181,7 +185,17 @@ public class PromEntry implements Externalizable{
         return address.get();
     }
 
+    public BarrelShifter getBarrelShifter() {
+        return barrelShifter.get();
+    }
 
+    public SimpleObjectProperty<BarrelShifter> barrelShifterProperty() {
+        return barrelShifter;
+    }
+
+    public void setBarrelShifter(BarrelShifter barrelShifter) {
+        this.barrelShifter.set(barrelShifter);
+    }
 
     public void setAddress(Address address) {
         this.address.set(address);
@@ -212,6 +226,7 @@ public class PromEntry implements Externalizable{
         objectOutput.writeObject(this.aluMux.getValue());
         objectOutput.writeInt(this.constant.getValue());
 
+        objectOutput.writeObject(this.barrelShifter.getValue());
 
         objectOutput.writeBoolean(this.aFromAccu.getValue());
         objectOutput.writeBoolean(this.bFromAccu.getValue());
@@ -235,6 +250,8 @@ public class PromEntry implements Externalizable{
         aluCode =  new SimpleObjectProperty(objectInput.readObject());
         aluMux = new SimpleObjectProperty(objectInput.readObject());
         constant =  new SimpleIntegerProperty(objectInput.readInt());
+
+        barrelShifter = new SimpleObjectProperty(objectInput.readObject());
 
         aFromAccu = new SimpleBooleanProperty(objectInput.readBoolean());
         bFromAccu = new SimpleBooleanProperty(objectInput.readBoolean());

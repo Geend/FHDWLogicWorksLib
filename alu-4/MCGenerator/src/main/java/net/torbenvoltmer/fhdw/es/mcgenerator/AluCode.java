@@ -70,7 +70,7 @@ public class AluCode implements Serializable{
         }
         else
         {
-            math = "H";
+            math = "M";
         }
 
         return math + boolToChar(s3) + boolToChar(s2) + boolToChar(s1) + boolToChar(s0);

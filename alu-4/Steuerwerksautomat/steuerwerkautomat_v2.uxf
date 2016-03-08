@@ -1,0 +1,688 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.1.1">
+  <zoom_level>9</zoom_level>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>531</x>
+      <y>153</y>
+      <w>126</w>
+      <h>36</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;
+init</panel_attributes>
+    <additional_attributes>10.0;20.0;120.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLState</id>
+    <coordinates>
+      <x>1197</x>
+      <y>27</y>
+      <w>351</w>
+      <h>162</h>
+    </coordinates>
+    <panel_attributes>Legende
+--
+WRam = 1: Write data to ram
+AStart = 1: Start alu
+EPC = 1: Enable programm counter (increment pc on clock)
+WOPAExt = 1: Write Alu Operanda A
+RamMux = 1: Use PC for ram Address
+WPC = 1: Write RAR to PC
+WRarLow = 1: Write RAR low nibble
+WRarHigh = 1: Write RAR high nibble</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLState</id>
+    <coordinates>
+      <x>882</x>
+      <y>297</y>
+      <w>144</w>
+      <h>108</h>
+    </coordinates>
+    <panel_attributes>Fetch
+--
+WRam = 0
+AStart = 0
+EPC = 1
+WOPAExt = 0
+RamMux = 1</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLState</id>
+    <coordinates>
+      <x>639</x>
+      <y>117</y>
+      <w>144</w>
+      <h>108</h>
+    </coordinates>
+    <panel_attributes>Reset
+--
+WRam = 0
+AStart = 0
+EPC = 0
+WOPAExt = 0
+RamMux = 1</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLState</id>
+    <coordinates>
+      <x>864</x>
+      <y>441</y>
+      <w>144</w>
+      <h>135</h>
+    </coordinates>
+    <panel_attributes>WriteRARLow
+--
+WRam = 0
+AStart = 0
+EPC = 1
+WOPAExt = 0
+RamMux = 1
+WRarLow = 1
+WRarHigh = 0</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>774</x>
+      <y>162</y>
+      <w>180</w>
+      <h>153</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;
+(0000, 0, 0, 0, 0)</panel_attributes>
+    <additional_attributes>10.0;10.0;150.0;150.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLState</id>
+    <coordinates>
+      <x>1161</x>
+      <y>297</y>
+      <w>144</w>
+      <h>108</h>
+    </coordinates>
+    <panel_attributes>AluOperation
+--
+WRam = 0
+AStart = 1
+EPC = 1
+WOPAExt = 0
+RamMux = 1</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>981</x>
+      <y>54</y>
+      <w>234</w>
+      <h>36</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;
+(RAM, busy, carry, zero, of)</panel_attributes>
+    <additional_attributes>10.0;20.0;240.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1017</x>
+      <y>333</y>
+      <w>162</w>
+      <h>36</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;
+startAlu(0xxx, x, x, x, x)</panel_attributes>
+    <additional_attributes>10.0;20.0;160.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>477</x>
+      <y>9</y>
+      <w>144</w>
+      <h>36</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;
+(0xxx, x, x, x, x)</panel_attributes>
+    <additional_attributes>10.0;20.0;140.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>450</x>
+      <y>36</y>
+      <w>144</w>
+      <h>36</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;
+(0000, 0, 0, 0, 0)</panel_attributes>
+    <additional_attributes>10.0;20.0;140.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>990</x>
+      <y>243</y>
+      <w>504</w>
+      <h>72</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;
+finished(xxxx, 0, x, x, x)</panel_attributes>
+    <additional_attributes>540.0;60.0;540.0;20.0;10.0;20.0;10.0;60.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1296</x>
+      <y>333</y>
+      <w>126</w>
+      <h>36</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;
+clk</panel_attributes>
+    <additional_attributes>10.0;20.0;120.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>378</x>
+      <y>360</y>
+      <w>522</w>
+      <h>153</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;
+jump (11xx, x, x, x, x)</panel_attributes>
+    <additional_attributes>560.0;20.0;10.0;20.0;10.0;150.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>945</x>
+      <y>144</y>
+      <w>135</w>
+      <h>171</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;
+end (1011, x, x, x, x)</panel_attributes>
+    <additional_attributes>10.0;170.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>918</x>
+      <y>396</y>
+      <w>144</w>
+      <h>63</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;
+mov (100x, x, x, x, x)</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;50.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLState</id>
+    <coordinates>
+      <x>783</x>
+      <y>792</y>
+      <w>144</w>
+      <h>108</h>
+    </coordinates>
+    <panel_attributes>RamReg
+--
+WRam = 0
+AStart = 0
+EPC = 1
+WOPAExt = 1
+RamMux = 1</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLState</id>
+    <coordinates>
+      <x>864</x>
+      <y>612</y>
+      <w>144</w>
+      <h>135</h>
+    </coordinates>
+    <panel_attributes>WriteRARHigh
+--
+WRam = 0
+AStart = 0
+EPC = 1
+WOPAExt = 0
+RamMux = 1
+WRarLow = 0
+WRarHigh = 1</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>918</x>
+      <y>567</y>
+      <w>126</w>
+      <h>63</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;
+clk(xxxx, x, x, x, x)</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;50.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>1035</x>
+      <y>666</y>
+      <w>297</w>
+      <h>45</h>
+    </coordinates>
+    <panel_attributes>Did we wanted to to REGRAM or RAMREG here?
+Do we need a register for the current opcode?
+bg=yellow</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>810</x>
+      <y>738</y>
+      <w>126</w>
+      <h>72</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;
+clk(1000, x, x, x, x)</panel_attributes>
+    <additional_attributes>90.0;10.0;40.0;60.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>972</x>
+      <y>738</y>
+      <w>144</w>
+      <h>72</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;
+clk(1001, x, x, x, x)</panel_attributes>
+    <additional_attributes>10.0;10.0;50.0;60.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLState</id>
+    <coordinates>
+      <x>621</x>
+      <y>468</y>
+      <w>144</w>
+      <h>108</h>
+    </coordinates>
+    <panel_attributes>A -&gt; SaveA
+--
+WRam = 
+AStart = 
+EPC = 
+WOPAExt = 
+RamMux = </panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLState</id>
+    <coordinates>
+      <x>954</x>
+      <y>792</y>
+      <w>144</w>
+      <h>108</h>
+    </coordinates>
+    <panel_attributes>RegRam
+--
+WRam = 1
+AStart = 0
+EPC = 1
+WOPAExt = 0
+RamMux = 1</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>252</x>
+      <y>54</y>
+      <w>144</w>
+      <h>36</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;
+clk(xxxx, x, x, x, x)</panel_attributes>
+    <additional_attributes>10.0;20.0;140.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>963</x>
+      <y>234</y>
+      <w>828</w>
+      <h>612</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;
+clk(xxxx, x, x, x, x)</panel_attributes>
+    <additional_attributes>150.0;660.0;780.0;660.0;790.0;10.0;10.0;10.0;10.0;70.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>855</x>
+      <y>819</y>
+      <w>648</w>
+      <h>135</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;
+clk(xxxx, x, x, x, x)</panel_attributes>
+    <additional_attributes>10.0;90.0;10.0;130.0;700.0;130.0;700.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>702</x>
+      <y>387</y>
+      <w>207</w>
+      <h>99</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;
+mov (1010, x, x, x, x)</panel_attributes>
+    <additional_attributes>210.0;20.0;10.0;20.0;10.0;90.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLState</id>
+    <coordinates>
+      <x>612</x>
+      <y>738</y>
+      <w>144</w>
+      <h>108</h>
+    </coordinates>
+    <panel_attributes>SaveA -&gt; B
+--
+WRam = 
+AStart = 
+EPC = 
+WOPAExt = 
+RamMux = </panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLState</id>
+    <coordinates>
+      <x>612</x>
+      <y>603</y>
+      <w>144</w>
+      <h>108</h>
+    </coordinates>
+    <panel_attributes>B -&gt; A
+--
+WRam = 
+AStart = 
+EPC = 
+WOPAExt = 
+RamMux = </panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>639</x>
+      <y>567</y>
+      <w>126</w>
+      <h>54</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;
+clk(xxxx, x, x, x, x)</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;40.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>639</x>
+      <y>702</y>
+      <w>126</w>
+      <h>54</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;
+clk(xxxx, x, x, x, x)</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;40.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>648</x>
+      <y>837</y>
+      <w>234</w>
+      <h>117</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;
+clk(xxxx, x, x, x, x)</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;110.0;240.0;110.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLState</id>
+    <coordinates>
+      <x>63</x>
+      <y>36</y>
+      <w>144</w>
+      <h>108</h>
+    </coordinates>
+    <panel_attributes>Template state
+--
+WRam = 
+AStart = 
+EPC = 
+WOPAExt = 
+RamMux = </panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLState</id>
+    <coordinates>
+      <x>333</x>
+      <y>495</y>
+      <w>144</w>
+      <h>108</h>
+    </coordinates>
+    <panel_attributes>WriteRARLow
+--
+WRam = 0
+AStart = 0
+EPC = 1
+WOPAExt = 0
+RamMux = 1</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>369</x>
+      <y>594</y>
+      <w>126</w>
+      <h>72</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;
+clk(xxxx, x, x, x, x)</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;60.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLState</id>
+    <coordinates>
+      <x>324</x>
+      <y>648</y>
+      <w>144</w>
+      <h>108</h>
+    </coordinates>
+    <panel_attributes>WriteRARHigh
+--
+WRam = 0
+AStart = 0
+EPC = 1
+WOPAExt = 0
+RamMux = 1</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>261</x>
+      <y>747</y>
+      <w>180</w>
+      <h>117</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;
+Jump (1111, x, x, x, x)</panel_attributes>
+    <additional_attributes>80.0;10.0;10.0;110.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>0</x>
+      <y>729</y>
+      <w>297</w>
+      <h>45</h>
+    </coordinates>
+    <panel_attributes>Which Jump did we wanted to do?
+Do we need a register for the current opcode?
+bg=yellow</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLState</id>
+    <coordinates>
+      <x>261</x>
+      <y>846</y>
+      <w>288</w>
+      <h>117</h>
+    </coordinates>
+    <panel_attributes>Jump
+--
+WRam = 0
+AStart = 0
+EPC = 
+WOPAExt = 
+RamMux = 
+WPC = 1</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>405</x>
+      <y>747</y>
+      <w>189</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;
+JumpIfCarry (1100, x, 1, x, x)</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;80.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>369</x>
+      <y>747</y>
+      <w>180</w>
+      <h>153</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;
+JumpIfZero (1101, x, x, 1, x)</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;150.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>459</x>
+      <y>738</y>
+      <w>171</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;
+JumpIfOF (1110, x, x, x, 1)</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;80.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>27</x>
+      <y>297</y>
+      <w>333</w>
+      <h>432</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;
+JumpIfCarry (1100, x, 0, x, x)</panel_attributes>
+    <additional_attributes>330.0;460.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>207</x>
+      <y>333</y>
+      <w>693</w>
+      <h>387</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;
+JumpIfOF (1110, x, x, x, 0)</panel_attributes>
+    <additional_attributes>130.0;410.0;20.0;410.0;10.0;10.0;750.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>117</x>
+      <y>351</y>
+      <w>783</w>
+      <h>342</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;
+JumpIfZero (1101, x, x, 0, x)</panel_attributes>
+    <additional_attributes>230.0;360.0;10.0;220.0;170.0;10.0;850.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLState</id>
+    <coordinates>
+      <x>1404</x>
+      <y>297</y>
+      <w>144</w>
+      <h>108</h>
+    </coordinates>
+    <panel_attributes>AluBusy
+--
+WRam = 0
+AStart = 0
+EPC = 1
+WOPAExt = 0
+RamMux = 1</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLState</id>
+    <coordinates>
+      <x>837</x>
+      <y>45</y>
+      <w>144</w>
+      <h>108</h>
+    </coordinates>
+    <panel_attributes>End
+--
+WRam = 0
+AStart = 0
+EPC = 0
+DPC = 1
+WOPAExt = 0
+RamMux = 1</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>918</x>
+      <y>144</y>
+      <w>45</w>
+      <h>171</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;
+clk</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;170.0</additional_attributes>
+  </element>
+</diagram>
