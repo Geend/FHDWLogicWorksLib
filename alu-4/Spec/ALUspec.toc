@@ -16,12 +16,13 @@
 \contentsline {subsection}{\numberline {2.1.4}AccuB}{5}{subsection.2.1.4}
 \contentsline {subsection}{\numberline {2.1.5}CMD}{5}{subsection.2.1.5}
 \contentsline {subsection}{\numberline {2.1.6}Flags}{5}{subsection.2.1.6}
-\contentsline {section}{\numberline {2.2}Modul-Beschreibung}{6}{section.2.2}
-\contentsline {subsection}{\numberline {2.2.1}74\_181}{6}{subsection.2.2.1}
-\contentsline {subsection}{\numberline {2.2.2}MUL-4}{6}{subsection.2.2.2}
+\contentsline {section}{\numberline {2.2}Modul-Beschreibung}{5}{section.2.2}
+\contentsline {subsection}{\numberline {2.2.1}74181}{5}{subsection.2.2.1}
+\contentsline {subsection}{\numberline {2.2.2}MUL-4}{5}{subsection.2.2.2}
 \contentsline {subsection}{\numberline {2.2.3}Barrel-Shifter-8}{6}{subsection.2.2.3}
 \contentsline {subsection}{\numberline {2.2.4}Bi-Reg-n}{6}{subsection.2.2.4}
 \contentsline {subsection}{\numberline {2.2.5}Uni-Reg-n}{6}{subsection.2.2.5}
-\contentsline {subsection}{\numberline {2.2.6}MC-PROM}{6}{subsection.2.2.6}
-\contentsline {subsubsection}{Programmierung}{6}{subsection.2.2.6}
+\contentsline {subsection}{\numberline {2.2.6}MUX-nxm}{6}{subsection.2.2.6}
+\contentsline {subsection}{\numberline {2.2.7}MC-PROM}{6}{subsection.2.2.7}
+\contentsline {subsubsection}{Programmierung}{6}{subsection.2.2.7}
 \contentsline {section}{\numberline {2.3}Detailblockschaltbild}{6}{section.2.3}
