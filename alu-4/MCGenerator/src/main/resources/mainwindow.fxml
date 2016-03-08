@@ -13,6 +13,7 @@
             <TableColumn fx:id="aluCode" text="ALU Code" />
             <TableColumn fx:id="aluMux" text="ALU MUX" />
             <TableColumn fx:id="constant" text="Constant" />
+            <TableColumn fx:id="barrelShifter" text="Barrel Shifter" />
             <TableColumn fx:id="aFromAccu" text="aFromAccu" />
             <TableColumn fx:id="bFromAccu" text="bFromAccu" />
             <TableColumn fx:id="writeAccuA" text="writeAccuA" />

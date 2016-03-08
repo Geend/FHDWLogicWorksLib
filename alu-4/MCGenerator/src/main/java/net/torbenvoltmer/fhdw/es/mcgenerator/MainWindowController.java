@@ -52,6 +52,9 @@ public class MainWindowController {
     private TableColumn<PromEntry, Integer> constant;
 
     @FXML
+    private TableColumn<PromEntry, BarrelShifter> barrelShifter;
+
+    @FXML
     private TableColumn<PromEntry, Boolean> aFromAccu;
 
     @FXML
@@ -161,6 +164,50 @@ public class MainWindowController {
         constant.setOnEditCommit(
                 t -> t.getTableView().getItems().get(
                         t.getTablePosition().getRow()).setConstant(t.getNewValue())
+        );
+
+
+        barrelShifter.setCellValueFactory(promEntryBarrelShifterCellDataFeatures -> promEntryBarrelShifterCellDataFeatures.getValue().barrelShifterProperty());
+        barrelShifter.setCellFactory(TextFieldTableCell.forTableColumn(new StringConverter<BarrelShifter>() {
+            @Override
+            public String toString(BarrelShifter barrelShifter) {
+                String str = barrelShifter.getShift().toString();
+                if(barrelShifter.getLeftNotRight())
+                    str += "L";
+                else
+                    str +="R";
+
+                if(barrelShifter.getShiftNotRotate())
+                    str+="S";
+                else
+                    str+="R";
+
+                return str;
+            }
+
+            @Override
+            public BarrelShifter fromString(String s) {
+
+                BarrelShifter bs = new BarrelShifter(Integer.valueOf(s.substring(0,1)), false, false);
+
+                if(s.charAt(1) == 'L')
+                    bs.setLeftNotRight(true);
+                else if(s.charAt(1) == 'R')
+                    bs.setLeftNotRight(false);
+
+
+                if(s.charAt(2) == 'S')
+                    bs.setShiftNotRotate(true);
+                else if(s.charAt(2) == 'R')
+                    bs.setShiftNotRotate(false);
+
+
+                return bs;
+            }
+        }));
+        barrelShifter.setOnEditCommit(
+                t -> t.getTableView().getItems().get(
+                        t.getTablePosition().getRow()).setBarrelShifter(t.getNewValue())
         );
 
 
@@ -355,18 +402,18 @@ public class MainWindowController {
 
         row[10] = (entry.getAluMux().getValue() & 0b001) == 0b001;
         row[11] = (entry.getAluMux().getValue() & 0b010) == 0b010;
-        row[12] = (entry.getAluMux().getValue() & 0b100) == 0b100;
 
-        row[13] = false;
-        row[14] = false;
-        row[15] = false;
+        row[12] = (entry.getConstant() & 0b0001) == 0b0001;
+        row[13] = (entry.getConstant() & 0b0010) == 0b0010;
+        row[14] = (entry.getConstant() & 0b0100) == 0b0100;
+        row[15] = (entry.getConstant() & 0b1000) == 0b1000;
 
-        row[16] = (entry.getConstant() & 0b0001) == 0b0001;
-        row[17] = (entry.getConstant() & 0b0010) == 0b0010;
-        row[18] = (entry.getConstant() & 0b0100) == 0b0100;
-        row[19] = (entry.getConstant() & 0b1000) == 0b1000;
+        row[16] = (entry.getBarrelShifter().getShift() & 0b001) == 0b001;
+        row[17] = (entry.getBarrelShifter().getShift() & 0b010) == 0b010;
+        row[18] = (entry.getBarrelShifter().getShift() & 0b101) == 0b100;
+        row[19] = entry.getBarrelShifter().getLeftNotRight();
+        row[20] = entry.getBarrelShifter().getShiftNotRotate();
 
-        row[20] = false;
         row[21] = false;
         row[22] = false;
         row[23] = false;
