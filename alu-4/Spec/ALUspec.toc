@@ -1,21 +1,27 @@
 \select@language {ngerman}
 \contentsline {chapter}{\numberline {1}Datenblatt}{2}{chapter.1}
-\contentsline {section}{\numberline {1.1}Funktionen}{2}{section.1.1}
+\contentsline {section}{\numberline {1.1}Einsatzbereich}{2}{section.1.1}
 \contentsline {section}{\numberline {1.2}Features}{2}{section.1.2}
-\contentsline {section}{\numberline {1.3}Blockschaltbild}{2}{section.1.3}
-\contentsline {subsection}{\numberline {1.3.1}Au\IeC {\ss }en}{2}{subsection.1.3.1}
-\contentsline {subsection}{\numberline {1.3.2}Innen}{3}{subsection.1.3.2}
-\contentsline {section}{\numberline {1.4}Fachliche Beschreibung extern}{3}{section.1.4}
+\contentsline {section}{\numberline {1.3}Funktion}{2}{section.1.3}
+\contentsline {section}{\numberline {1.4}Blockschaltbild}{2}{section.1.4}
+\contentsline {section}{\numberline {1.5}Schnittstellen}{3}{section.1.5}
+\contentsline {section}{\numberline {1.6}Gate-Count}{3}{section.1.6}
+\contentsline {section}{\numberline {1.7}Timing-Diagramm}{3}{section.1.7}
+\contentsline {section}{\numberline {1.8}Leistungsabsch\IeC {\"a}tzung}{3}{section.1.8}
 \contentsline {chapter}{\numberline {2}Spezifikation}{5}{chapter.2}
-\contentsline {section}{\numberline {2.1}Komponenten}{5}{section.2.1}
-\contentsline {subsection}{\numberline {2.1.1}Register}{5}{subsection.2.1.1}
-\contentsline {subsubsection}{Ein-/Ausg\IeC {\"a}nge}{5}{subsection.2.1.1}
-\contentsline {subsection}{\numberline {2.1.2}Bidirektionale Register}{5}{subsection.2.1.2}
-\contentsline {subsubsection}{Ein-/Ausg\IeC {\"a}nge}{5}{subsection.2.1.2}
-\contentsline {subsection}{\numberline {2.1.3}74\_181}{5}{subsection.2.1.3}
-\contentsline {subsubsection}{Ein-/Ausg\IeC {\"a}nge}{5}{subsection.2.1.3}
-\contentsline {section}{\numberline {2.2}PROM}{5}{section.2.2}
-\contentsline {subsection}{\numberline {2.2.1}Ein-/Ausg\IeC {\"a}nge}{5}{subsection.2.2.1}
-\contentsline {subsection}{\numberline {2.2.2}Programmierung}{5}{subsection.2.2.2}
-\contentsline {section}{\numberline {2.3}Gate-Count}{5}{section.2.3}
-\contentsline {section}{\numberline {2.4}Timing-Diagramm}{5}{section.2.4}
+\contentsline {section}{\numberline {2.1}Register}{5}{section.2.1}
+\contentsline {subsection}{\numberline {2.1.1}RegA}{5}{subsection.2.1.1}
+\contentsline {subsection}{\numberline {2.1.2}RegB}{5}{subsection.2.1.2}
+\contentsline {subsection}{\numberline {2.1.3}AccuA}{5}{subsection.2.1.3}
+\contentsline {subsection}{\numberline {2.1.4}AccuB}{5}{subsection.2.1.4}
+\contentsline {subsection}{\numberline {2.1.5}CMD}{5}{subsection.2.1.5}
+\contentsline {subsection}{\numberline {2.1.6}Flags}{5}{subsection.2.1.6}
+\contentsline {section}{\numberline {2.2}Modul-Beschreibung}{6}{section.2.2}
+\contentsline {subsection}{\numberline {2.2.1}74\_181}{6}{subsection.2.2.1}
+\contentsline {subsection}{\numberline {2.2.2}MUL-4}{6}{subsection.2.2.2}
+\contentsline {subsection}{\numberline {2.2.3}Barrel-Shifter-8}{6}{subsection.2.2.3}
+\contentsline {subsection}{\numberline {2.2.4}Bi-Reg-n}{6}{subsection.2.2.4}
+\contentsline {subsection}{\numberline {2.2.5}Uni-Reg-n}{6}{subsection.2.2.5}
+\contentsline {subsection}{\numberline {2.2.6}MC-PROM}{6}{subsection.2.2.6}
+\contentsline {subsubsection}{Programmierung}{6}{subsection.2.2.6}
+\contentsline {section}{\numberline {2.3}Detailblockschaltbild}{6}{section.2.3}
