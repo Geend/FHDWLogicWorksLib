@@ -4,8 +4,8 @@
   {name: 'WriteRegA', wave: '0..1.0..', },
   {name: 'WriteRegB', wave: '0..1.0..',},],  
   ['Op',
-   {name: 'a', wave: 'x.3..5..', data: [8,8]},
-   {name: 'b', wave: 'x.3..5..', data: ["A", "A"]},
+   {name: 'a', wave: 'x.3.5...', data: [8,8]},
+   {name: 'b', wave: 'x.3.5...', data: ["A", "A"]},
   ], 
   ]}
    
