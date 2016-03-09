@@ -41,6 +41,7 @@
 }
 \usepackage{babel}
 \usepackage{ulem}
+\usepackage{placeins}
 
 
 % Spezialpakete
@@ -109,12 +110,23 @@
 	\pagebreak
 	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	
+	\chapter{Preambel}
+	
 	\chapter{Datenblatt}
 	
 	\section{Einsatzbereich}
+	Diese flexible ALU kann als arithmetisch/logische Einheit in einem Mikroprozessor verwendet werden.
+	\colorbox{red}{Durch zwei in Microcode realisierbare Befehle...}
 	
 	\section{Features}
-	% Highnibble erihgbsröib
+	\begin{itemize}
+		\item Addition und Subtraktion zweier 4 Bit Operanden erzeugen ein 5 Bit langes Ergebnis.
+		\item Multiplikation zweier 4 Bit Operanden erzeugt ein 8 Bit langes Ergebnis.
+		\item Native Befehle werden in 2 Takten verarbeitet (Microcode ausgeschlossen).
+		\item \colorbox{red}{2 Akkumulator Register für Microcode.}
+		\item Für Microcode kann ein Barrel-Shifter verwendet werden.
+		\item Alle Ein- und Ausgänge werden in Registern erhalten.
+	\end{itemize}
 	
 	\section{Funktion}
 	\begin{table}[h]
@@ -123,7 +135,7 @@
 		\begin{tabular}{|lll|l|}
 			\hline
 			\multicolumn{3}{|c|}{CMD}                            & \multicolumn{1}{c|}{}             \\
-			\multicolumn{1}{|l|}{2} & \multicolumn{1}{l|}{1} & 0 & Logisch/arithmetischer Ausdruck \\ \hline
+			\multicolumn{1}{|l|}{2} & \multicolumn{1}{l|}{1} & 0 & Arithmetisch/logischer Ausdruck \\ \hline
 			0                       & 0                      & 0 & AND                               \\ \hline
 			0                       & 0                      & 1 & OR                                \\ \hline
 			0                       & 1                      & 0 & NOT                               \\ \hline
@@ -135,80 +147,73 @@
 		\end{tabular}
 		\caption{Befehls-Codierung}
 	\end{table}
-	
-	
+	\FloatBarrier
+	Für die Liste aller Port siehe Seite \pageref{portliste} Abbildung \ref{portliste}.\\
+	\begin{itemize}
+		\item Der Befehl \underline{AND} legt das Ergebnis an den ersten Operanden A0..3 an.
+		\item Der Befehl \underline{OR} legt das Ergebnis an den ersten Operanden A0..3 an.
+		\item Der Befehl \underline{NOT} negiert die Bits der Ports A0..3 und legt das Ergebnis an diesen wieder an.
+		\item Der Befehl \underline{ADD} addiert A0..3 und B0..3 und legt das Ergebnis an A0..3 an. Tritt bei der Berechnung ein Carry auf, wird dieser in B0 dargestellt und das Ergebnis ist somit 5 Bit lang.
+		\item Der Befehl \underline{SUB} subtrahiert B0..3 von A0..3 und gibt das Ergebnis an A0..3 aus. Dieses Ergebnis befindet sich im 2er-Komplement!
+		\item Der Befehl \underline{MUL} multipliziert A0..3 und B0..3 und legt das 8 Bit breite Ergebnis an diese Ports an.
+		\item Bei den Befehlen \underline{MC0} und \underline{MC1} handelt es sich zum Zeitpunkt der Anfertigung des Datenblattes um keine konkreten Befehle. Diese werden mit Hilfe von Microcode implementiert. Eine Erklärung dazu erhalten Sie im Spezifikationsteil dieses Dokumentes in Kapitel \ref{microcode_erklaerung}.
+	\end{itemize}
 	
 	\section{Blockschaltbild}
-	\begin{figure}[htbp]
+	\begin{figure}[h]
 		\begin{center}
 			\includegraphics[]{aeusseresBlockschaltbild}
 			\label{aeusseresBlockschaltbild}
-			\caption{Äußeres Blockschaltbild}
+			\caption{Äußeres Blockschaltbild}\label{aeusseresBlockschaltbild}
 		\end{center}
 	\end{figure}
-	
-	
+	\FloatBarrier
+	Für detaillierte Informationen zu Ein- und Ausgängen siehe Tabelle \ref{portliste}.\\
 	
 	\section{Schnittstellen}
-	Siehe Seite \pageref{portliste}.
-	\begin{table}[]
-		\label{portliste}
+	\begin{table}[h]
 		\centering
 		\begin{tabular}{|l|l|p{11cm}|}
 			\hline
-			Port & Typ & Funktion \\ \hline\hline
-			
-			Cin & Input &  \\ \hline
-			
-			WriteRegA & Input & Wenn 1, wird Operand 1 in Register A geschrieben (solange die Arbitrierung außen liegt). \\ \hline
-			
-			WriteRegB & Input & Wenn 1, wird Operand 2 in Register B geschrieben (solange die Arbitrierung außen liegt). \\ \hline
-			
-			Reset & Input & Register werden zurückgesetzt. \\ \hline
-			
-			Start & Input & Die Operation wird mit den angelegten Operanden durchgeführt. \\ \hline
-			
-			CLK & Input & Takt. \\ \hline
-			
-			CMD0..2 & Input & Auswahl des Befehls. Codierung siehe S. \pageref{codierungstabelle} \\ \hline
-			
-			A0..3 & Bidirektional & IN: Operand 1 wird mit WriteRegA angelegt. OUT: Ist Busy 0, liegt hier das Ergebnis der Berechnung an. Die Subtraktion liefert das 2er-Komplement. Multiplikation liefert hier die LSBits des Ergebnisses. \\ \hline
-			
-			B0..3 & Bidirektional & IN: Operand 2 wird mit WriteRegB angelegt. OUT: Wird Busy 0, liegt hier 0 an, die Multiplikation liefert hier die MSBits des Ergebnisses. \\ \hline
-			
-			Busy & Output & Ist 1, solange die ALU arbeitet. Wird Busy 0, liegt das Ergebnis an A0..3 und B0..3 an. Die Arbitrierung von RegA und RegB liegt außen, solange Busy=0 ist. \\ \hline
-			
-			OF & Output & OF ist 1, wenn die letzten beiden Übertragsbits ungleich sind und somit ein Overflow auftritt. \\ \hline
-			
-			Zero & Output & Zero ist 1, wenn alle Ergebnisbits 0 sind. \\ \hline
-			
-			Equal & Output & Equal ist 1, wenn die Operanden A und B bitweise gleich sind. \\ \hline
-			
-			Cout & Output & Tritt während der Berechnung ein Übertrag über die letzte Bitstelle auf, wird Cout 1 und kann weiter behandelt werden. \\ \hline
-			
+			Port      & Typ           & Funktion                                                                                                                                                                                                       \\ \hline\hline
+			Cin       & Input         & Carry-In für ADD und SUB                                                                                                                                                                                       \\ \hline
+			WriteRegA & Input         & Wenn 1, wird Operand 1 in Register A geschrieben (solange die Arbitrierung außen liegt).                                                                                                                       \\ \hline
+			WriteRegB & Input         & Wenn 1, wird Operand 2 in Register B geschrieben (solange die Arbitrierung außen liegt).                                                                                                                       \\ \hline
+			Reset     & Input         & Register werden asynchron (ohne Taktflanke) zurückgesetzt.                                                                                                                                                     \\ \hline
+			Start     & Input         & Die Operation wird mit den angelegten Operanden durchgeführt.                                                                                                                                                  \\ \hline
+			CLK       & Input         & Takt.                                                                                                                                                                                                          \\ \hline
+			CMD0..2   & Input         & Auswahl des Befehls. Codierung siehe Tabelle \ref{codierungstabelle}.\\ \hline
+			A0..3     & Bidirektional & IN: Operand 1 wird mit WriteRegA angelegt. OUT: Ist Busy 0, liegt hier das Ergebnis der Berechnung an. Die Subtraktion liefert das 2er-Komplement. Multiplikation liefert hier das low-nibble des Ergebnisses. \\ \hline
+			B0..3     & Bidirektional & IN: Operand 2 wird mit WriteRegB angelegt. OUT: Wird Busy 0, liegt hier 0 an, die Multiplikation liefert hier das high Nibble des Ergebnisses.                                                                 \\ \hline
+			Busy      & Output        & Ist 1, solange die ALU arbeitet. Wird Busy 0, liegt das Ergebnis an A0..3 und B0..3 an. Die Arbitrierung von RegA und RegB liegt außen, solange Busy = 0 ist.                                                    \\ \hline
+			OF (Flag)        & Output        & OF ist 1, wenn die letzten beiden Übertragsbits ungleich sind und somit ein Overflow auftritt.                                                                                                                 \\ \hline
+			Zero (Flag)     & Output        & Zero ist 1, wenn alle Ergebnisbits 0 sind.                                                                                                                                                                     \\ \hline
+			Equal (Flag)     & Output        & Equal ist 1, wenn die Operanden A und B bitweise gleich sind.                                                                                                                                                  \\ \hline
+			Cout (Flag)      & Output        & Carry out. Tritt während der Berechnung von ADD oder SUB ein Übertrag über die letzte Bitstelle auf, wird Cout 1 und kann weiter behandelt werden.                                                             \\ \hline
 		\end{tabular}
-		\caption{Liste aller Ports}
+		\caption{Liste aller Ports} \label{portliste}
 	\end{table}
+	\FloatBarrier
+	Tabelle \ref{flagtable} können Sie Informationen zur Relevanz der ausgegebenen Flags entehmen.\\
 	
-	\begin{table}[]
+	\begin{table}[h]
 		\centering
-		\label{flagtable}
 		\begin{tabular}{l|l|p{8cm}}
 			Flag  & relevant für                       & Auswirkung   \\ \hline
 			Cout  & Addition, Subtraktion              & Das Bit ist Repräsentant für einen in das nächste Nibble übergehenden Carry und muss zur Ermittlung des Ergebnisses berücksichtigt werden.\\
-			OF    & Addition, Subtraktion              & Das Bit ist Repräsentant für einen in das nächste Nibble übergehenden Carry und muss zur Ermittlung des Ergebnisses berücksichtigt werden.\\
-			Equal & beeinflusst kein Ergebnis          &                  \\
-			Zero  & beeinflusst kein Ergebnis          &                          
+			OF    & Subtraktion                     & Die Subtraktion liefert OF = 1, wenn ein Carry auftritt und die MSBits der Operanden im Zweierkomplement gleich sind. \\
 		\end{tabular}
-		\caption{Flag-Relevanz}
+		\caption{Flag-Relevanz} \label{flagtable}
 	\end{table}
-	
+	\FloatBarrier
+	Das Ergebnis keiner Funktion ist funktional von Equal und Zero abhängig.
 	
 	\section{Gate-Count}
-	Für eine detaillierte Angabe der Gatteräquivalente siehe S. \pageref{gatecounttable}.
-	\begin{table}[]
+	Für eine detaillierte Angabe der Gatteräquivalente siehe Abbildung \ref{gatecount} auf Seite \pageref{gatecount}.
+	\begin{table}[h]
+		\small
 		\centering
-		\label{gatecounttable}
+		\label{gatecount}
 		\begin{tabular}{llll}
 			\hline
 			Typ                                          & Gatteräquivalente          & Anzahl                  & Summe                      \\ \hline\hline
@@ -248,11 +253,28 @@
 			\multicolumn{1}{|l|}{74\_181}                & \multicolumn{1}{l|}{108,5} & \multicolumn{1}{l|}{1}  & \multicolumn{1}{l|}{108,5} \\ \hline\hline
 			Gesamtsumme:                                 &                            &                         & 787,5                      \\ \hline
 		\end{tabular}
-		\caption{Gatteräquivalente}
+		\caption{Gatteräquivalente}\label{gatecount}
 	\end{table}
-	
+	\FloatBarrier
 	
 	\section{Timing-Diagramm}
+	\begin{figure}[htbp]
+		\begin{center}
+			\includegraphics[width=\textwidth]{native_timing}
+			\label{native_timing}
+			\caption{Timingdiagramm der Addition}\label{native_timing}
+		\end{center}
+	\end{figure}
+	\FloatBarrier
+	\begin{figure}[htbp]
+		\begin{center}
+			\includegraphics[width=\textwidth]{write_reg_timing}
+			\label{write_reg_timing}
+			\caption{Timingdiagramm des Registerschreibvorgangs}\label{write_reg_timing}
+		\end{center}
+	\end{figure}
+	\FloatBarrier
+	
 	\section{Leistungsabschätzung}
 	watt pro gatter pro mhz als energieverbrauch
 	
@@ -263,14 +285,14 @@
 	\subsection{RegA}
 	Register für Operand A und das low-nibble des Ergebnisses.
 	Es handelt sich um ein Bi-Reg-4.
-	Die Arbitrierung des Registers liegt intern, solange busy=0 ist.
-	Das Ergebnis liegt am Ausgang an, sobald busy=0 wird.
+	Die Arbitrierung des Registers liegt intern, solange Busy = 0 ist.
+	Das Ergebnis liegt am Ausgang an, sobald Busy = 0 wird.
 	
 	\subsection{RegB}
 	Register für Operand B und das high-nibble des Ergebnisses.
 	Es handelt sich um ein Bi-Reg-4.
-	Die Arbitrierung des Registers liegt intern, solange busy=0 ist.
-	Das Ergebnis liegt am Ausgang an, sobald busy=0 wird.
+	Die Arbitrierung des Registers liegt intern, solange Busy = 0 ist.
+	Das Ergebnis liegt am Ausgang an, sobald Busy = 0 wird.
 	
 	\subsection{AccuA}
 	Akkumulatorregister für das low-nibble des Ergebnisses.
@@ -284,23 +306,23 @@
 	
 	\subsection{CMD}
 	Register für den Befehlscode.
-	Es handelt sich um ein Uni-Reg-3. Wir geschrieben sobald Start=1 gesetzt wird.
+	Es handelt sich um ein Uni-Reg-3. Wir geschrieben sobald Start = 1 gesetzt wird.
 	
 	\subsection{Flags}
 	Register für die Flags.
 	Es handelt sich um ein Uni-Reg-4.
-	Die Flags liegen am Ausgang an, sobald busy=0 wird.
+	Die Flags liegen am Ausgang an, sobald Busy = 0 wird.
 	
 	
 	\section{Modul-Beschreibung}
 	\subsection{74181}
-	Die 74181 dient zur Berchnung aller nativen ALU-Befehle außer der Mulitplikation.
+	Die 74181 dient zur Berechnung aller nativen ALU-Befehle außer der Multiplikation.
 	
 	\subsection{MUL-4}
-	Ein 4x4 Bit Hardware-Mulitplizierer mit 8 Bit Ausagang.
+	Ein 4x4 Bit Hardware-Multiplizierer mit 8 Bit Ausgang.
 	
 	\subsection{Barrel-Shifter-8}
-	Ein 8-Bit Barrel-Shifter, der links/rechts rotieren/schieben um  0-7 bit kann.
+	Ein 8-Bit Barrel-Shifter, der links/rechts rotieren/schieben um  0-7 Bit kann.
 	\subsection{Bi-Reg-n}
 	
 	\subsection{Uni-Reg-n}
@@ -310,15 +332,39 @@
 	Multiplexer zum Schalten von n Signalquellen mit je m Bits.
 	
 	\subsection{MC-PROM}
+	\label{microcode_erklaerung}
 	\subsubsection{Programmierung}
 	
 	\section{Detailblockschaltbild}
-	Für das innere Schaltbild siehe Seite \pageref{inneresBlockschaltbild}.
 	\begin{figure}[htbp]
 		\begin{center}
 			\includegraphics[width=\textwidth]{inneresBlockschaltbild}
 			\label{inneresBlockschaltbild}
 			\caption{Inneres Blockschaltbild}
+		\end{center}
+	\end{figure}
+	
+	\begin{figure}[htbp]
+		\begin{center}
+			\includegraphics[width=\textwidth]{eingaenge_auswahlregister}
+			\label{eingaenge_auswahlregister}
+			\caption{Ein-/Ausgänge und Accumulatorregister}
+		\end{center}
+	\end{figure}
+	
+	\begin{figure}[htbp]
+		\begin{center}
+			\includegraphics[]{CMD_ALUbefehle}
+			\label{CMD_ALUbefehle}
+			\caption{Befehlscodierung}
+		\end{center}
+	\end{figure}
+	
+	\begin{figure}[htbp]
+		\begin{center}
+			\includegraphics[width=\textwidth]{flagregister}
+			\label{flagregister}
+			\caption{Bestimmung der Flags}
 		\end{center}
 	\end{figure}
 	
