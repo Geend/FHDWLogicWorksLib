@@ -1,0 +1,24 @@
+{signal: [
+  ['Ctrl',
+  {name: 'clk', wave: 'P..', period: 4},
+  {name: 'start', wave: '0..1.0......', node: '...s'},
+  {name: 'busy', wave: '0...1....0..', node: '....b'},],
+  ['Cmd',
+    {name: 'cmd2', wave: 'x.0..x......'},
+    {name: 'cmd1', wave: 'x.1..x......'},
+    {name: 'cmd0', wave: 'x.1..x......'}],
+  ['Op',
+   {name: 'a', wave: '2...x...2...', data: [8, "2"]},
+   {name: 'b', wave: '2...x...2...', data: ["A",1]},
+  ],
+  ['Flags',
+   {name: 'equal', wave: 'x.......0...'},
+   {name: 'zero', wave: 'x.......0...'},
+   {name: 'carry', wave: 'x.......1...'},
+   {name: 'of', wave: 'x.......0...'},
+   
+  ],
+  ],
+  edge:[
+	's~b start']
+}

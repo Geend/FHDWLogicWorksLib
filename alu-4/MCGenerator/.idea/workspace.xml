@@ -2,17 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0a97dafa-2b24-4e89-9b68-5f549a5058f2" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../ALU4_test.cct" afterPath="$PROJECT_DIR$/../../ALU4_test.cct" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/net/torbenvoltmer/fhdw/es/mcgenerator/MainWindowController$1.class" afterPath="$PROJECT_DIR$/target/classes/net/torbenvoltmer/fhdw/es/mcgenerator/MainWindowController$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/net/torbenvoltmer/fhdw/es/mcgenerator/MainWindowController.class" afterPath="$PROJECT_DIR$/target/classes/net/torbenvoltmer/fhdw/es/mcgenerator/MainWindowController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/net/torbenvoltmer/fhdw/es/mcgenerator/PromEntry.class" afterPath="$PROJECT_DIR$/target/classes/net/torbenvoltmer/fhdw/es/mcgenerator/PromEntry.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/net/torbenvoltmer/fhdw/es/mcgenerator/AluCode.java" afterPath="$PROJECT_DIR$/src/main/java/net/torbenvoltmer/fhdw/es/mcgenerator/AluCode.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/net/torbenvoltmer/fhdw/es/mcgenerator/MainWindowController.java" afterPath="$PROJECT_DIR$/src/main/java/net/torbenvoltmer/fhdw/es/mcgenerator/MainWindowController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/net/torbenvoltmer/fhdw/es/mcgenerator/PromEntry.java" afterPath="$PROJECT_DIR$/src/main/java/net/torbenvoltmer/fhdw/es/mcgenerator/PromEntry.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/mainwindow.fxml" afterPath="$PROJECT_DIR$/src/main/resources/mainwindow.fxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/mainwindow.fxml" afterPath="$PROJECT_DIR$/target/classes/mainwindow.fxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Steuerwerksautomat/steuerwerkautomat_v2.uxf" afterPath="$PROJECT_DIR$/../Steuerwerksautomat/steuerwerkautomat_v2.uxf" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../.~lock.Codierung.xlsx#" afterPath="" />
     </list>
     <ignored path="MCGenerator.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -611,7 +601,7 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3293348" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3293348" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23743315" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />

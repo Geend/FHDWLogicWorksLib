@@ -1,0 +1,11 @@
+{signal: [
+  {name: 'clk', wave: 'P..', period: 4},
+  {name: 'start', wave: '0..1.0......', node: '...s'},
+  {name: 'busy', wave: '0...1....0..', node: '....b'},
+  {name: 'cmd2', wave: '0.1..0......'},
+  {name: 'cmd1', wave: '0...........'},
+  {name: 'cmd0', wave: '0.1..0......'},
+],
+  edge:[
+	's~b start'
+]}
