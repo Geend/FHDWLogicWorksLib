@@ -1,0 +1,6 @@
+Circuit:	ALU-4
+Date:		Wednesday, March 09, 2016 - 9:32 PM
+
+Device Type        Num. Used   Value    References
+
+Mux-2x4 T.S.          1                 DEV2

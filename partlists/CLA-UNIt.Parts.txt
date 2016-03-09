@@ -1,0 +1,13 @@
+Circuit:	ALU-4
+Date:		Wednesday, March 09, 2016 - 9:27 PM
+
+Device Type        Num. Used   Value    References
+
+AND-2                 4                 D00003 D00005 D00006 D00012
+AND-3                 3                 D00004 D00007 D00011
+AND-4                 3                 D00002 D00009 D00010
+AND-5                 1                 D00008
+OR-2                  1                 D00016
+OR-3                  1                 D00015
+OR-4                  2                 D00001 D00014
+OR-5                  1                 D00013

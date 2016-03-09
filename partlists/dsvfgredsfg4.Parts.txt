@@ -1,0 +1,10 @@
+Circuit:	ALU-4
+Date:		Wednesday, March 09, 2016 - 9:12 PM
+
+Device Type        Num. Used   Value    References
+
+                      33                D00001 D00009 D00011 D00012 D00013 D00014 D00015 D00020
+                                        D00021 D00022 D00024 D00025 D00026 D00027 D00028 D00029
+                                        D00030 D00034 D00035 D00036 D00038 D00041 D00042 D00043
+                                        D00045 D00048 D00049 D00050 D00052 D00055 D00056 D00057
+                                        D00059

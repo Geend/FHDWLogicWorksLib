@@ -1,0 +1,13 @@
+Circuit:	ALU-4
+Date:		Wednesday, March 09, 2016 - 9:30 PM
+
+Device Type        Num. Used   Value    References
+
+Buffer-8 T.S.         4                 D00005 D00006 D00007 D00008
+LROT-8                1                 D00012
+LSHIFT-8              1                 D00010
+NAND-2                1                 D00004
+NAND-2 (1-Inv)        2                 D00001 D00003
+NAND-2 (2-Inv)        1                 D00002
+RROT-8                1                 D00011
+RSHIFT-8              1                 D00009

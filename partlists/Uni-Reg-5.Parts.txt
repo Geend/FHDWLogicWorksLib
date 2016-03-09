@@ -1,0 +1,8 @@
+Circuit:	ALU-4
+Date:		Wednesday, March 09, 2016 - 9:19 PM
+
+Device Type        Num. Used   Value    References
+
+Buffer-8 T.S.         2                 D00001 D00002
+D Flip Flop           5                 11 22 33 44 DEV2
+NOT                   2                 D00003 D00004
