@@ -108,10 +108,15 @@
 	
 	\pagebreak
 	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
+	
 	\chapter{Datenblatt}
 	
-	\section{Funktionen}
+	\section{Einsatzbereich}
+	
+	\section{Features}
+	% Highnibble erihgbsröib
+	
+	\section{Funktion}
 	\begin{table}[h]
 		\centering
 		\label{codierungstabelle}
@@ -131,11 +136,9 @@
 		\caption{Befehls-Codierung}
 	\end{table}
 	
-	\section{Features}
+	
 	
 	\section{Blockschaltbild}
-	
-	\subsection{Außen}
 	\begin{figure}[htbp]
 		\begin{center}
 			\includegraphics[]{aeusseresBlockschaltbild}
@@ -144,62 +147,62 @@
 		\end{center}
 	\end{figure}
 	
-	\subsection{Innen}
-	Für das innere Schaltbild siehe Seite \pageref{inneresBlockschaltbild}.
-	\begin{figure}[htbp]
-		\begin{center}
-			\includegraphics[width=\textwidth]{inneresBlockschaltbild}
-			\label{inneresBlockschaltbild}
-			\caption{Inneres Blockschaltbild}
-		\end{center}
-	\end{figure}
 	
-	\section{Fachliche Beschreibung extern}
+	
+	\section{Schnittstellen}
+	Siehe Seite \pageref{portliste}.
 	\begin{table}[]
-		\centering
 		\label{portliste}
-		\begin{tabular}{|l|l|l|}
+		\centering
+		\begin{tabular}{|l|l|p{11cm}|}
 			\hline
 			Port & Typ & Funktion \\ \hline\hline
+			
 			Cin & Input &  \\ \hline
-			CMD0..2 & Bidirektional & Auswahl des Befehls. Codierung siehe S. \pageref{codierungstabelle} \\ \hline
-			A0..3 & Bidirektional & \begin{tabular}[c]{@{}l@{}}IN: Operand 1 wird mit WriteRegA angelegt.\\ OUT: Ist Busy 0, liegt hier das Ergebnis der Berechnung an.\\ Die Subtraktion liefert das 2er-Komplement.\\ Multiplikation liefert hier die LSBits des Ergebnisses.\end{tabular} \\ \hline
-			WriteRegA & Input & Wenn 1, wird Operand 1 in Register A geschrieben. \\ \hline
-			B0..3 & Bidirektional & \begin{tabular}[c]{@{}l@{}}IN: Operand 2 wird mit WriteRegB angelegt.\\ OUT: Wird Busy 0, liegt hier 0 an,\\ die Multiplikation liefert hier die MSBits des Ergebnisses.\end{tabular} \\ \hline
-			WriteRegB & Input & Wenn 1, wird Operand 2 in Register B geschrieben. \\ \hline
+			
+			WriteRegA & Input & Wenn 1, wird Operand 1 in Register A geschrieben (solange die Arbitrierung außen liegt). \\ \hline
+			
+			WriteRegB & Input & Wenn 1, wird Operand 2 in Register B geschrieben (solange die Arbitrierung außen liegt). \\ \hline
+			
 			Reset & Input & Register werden zurückgesetzt. \\ \hline
+			
 			Start & Input & Die Operation wird mit den angelegten Operanden durchgeführt. \\ \hline
+			
 			CLK & Input & Takt. \\ \hline
-			Busy & Output & \begin{tabular}[c]{@{}l@{}}Ist 1, solange die ALU arbeitet.\\ Wird Busy 0, liegt das Ergebnis an A0..3 und B0..3 an.\end{tabular} \\ \hline
-			OF & Output & \begin{tabular}[c]{@{}l@{}}OF ist 1, wenn die letzten beiden Übertragsbits ungleich sind\\ und somit ein Overflow auftritt.\end{tabular} \\ \hline
+			
+			CMD0..2 & Input & Auswahl des Befehls. Codierung siehe S. \pageref{codierungstabelle} \\ \hline
+			
+			A0..3 & Bidirektional & IN: Operand 1 wird mit WriteRegA angelegt. OUT: Ist Busy 0, liegt hier das Ergebnis der Berechnung an. Die Subtraktion liefert das 2er-Komplement. Multiplikation liefert hier die LSBits des Ergebnisses. \\ \hline
+			
+			B0..3 & Bidirektional & IN: Operand 2 wird mit WriteRegB angelegt. OUT: Wird Busy 0, liegt hier 0 an, die Multiplikation liefert hier die MSBits des Ergebnisses. \\ \hline
+			
+			Busy & Output & Ist 1, solange die ALU arbeitet. Wird Busy 0, liegt das Ergebnis an A0..3 und B0..3 an. Die Arbitrierung von RegA und RegB liegt außen, solange Busy=0 ist. \\ \hline
+			
+			OF & Output & OF ist 1, wenn die letzten beiden Übertragsbits ungleich sind und somit ein Overflow auftritt. \\ \hline
+			
 			Zero & Output & Zero ist 1, wenn alle Ergebnisbits 0 sind. \\ \hline
-			Equal & Output & Equal ist 1, wenn die 4 Ergebnisbits von A und B bitweise gleich sind. \\ \hline
-			Cout & Output & \begin{tabular}[c]{@{}l@{}}Tritt während der Berechnung ein Übertrag über die letzte Bitstelle auf,\\ wird Cout 1 und kann weiter behandelt werden.\end{tabular} \\ \hline
+			
+			Equal & Output & Equal ist 1, wenn die Operanden A und B bitweise gleich sind. \\ \hline
+			
+			Cout & Output & Tritt während der Berechnung ein Übertrag über die letzte Bitstelle auf, wird Cout 1 und kann weiter behandelt werden. \\ \hline
+			
 		\end{tabular}
 		\caption{Liste aller Ports}
 	\end{table}
 	
-	\colorbox{red}{flags}
+	\begin{table}[]
+		\centering
+		\label{flagtable}
+		\begin{tabular}{l|l|p{8cm}}
+			Flag  & relevant für                       & Auswirkung   \\ \hline
+			Cout  & Addition, Subtraktion              & Das Bit ist Repräsentant für einen in das nächste Nibble übergehenden Carry und muss zur Ermittlung des Ergebnisses berücksichtigt werden.\\
+			OF    & Addition, Subtraktion              & Das Bit ist Repräsentant für einen in das nächste Nibble übergehenden Carry und muss zur Ermittlung des Ergebnisses berücksichtigt werden.\\
+			Equal & beeinflusst kein Ergebnis          &                  \\
+			Zero  & beeinflusst kein Ergebnis          &                          
+		\end{tabular}
+		\caption{Flag-Relevanz}
+	\end{table}
 	
-	
-	\chapter{Spezifikation}
-	
-	\section{Komponenten}
-	
-	\subsection{Register}
-	\subsubsection{Ein-/Ausgänge}
-	
-	\subsection{Bidirektionale Register}
-	\subsubsection{Ein-/Ausgänge}
-	
-	\subsection{74\_181}
-	\subsubsection{Ein-/Ausgänge}
-	
-	\section{PROM}
-	
-	\subsection{Ein-/Ausgänge}
-	
-	\subsection{Programmierung}
 	
 	\section{Gate-Count}
 	Für eine detaillierte Angabe der Gatteräquivalente siehe S. \pageref{gatecounttable}.
@@ -250,5 +253,73 @@
 	
 	
 	\section{Timing-Diagramm}
-
+	\section{Leistungsabschätzung}
+	watt pro gatter pro mhz als energieverbrauch
+	
+	
+	\chapter{Spezifikation}
+	
+	\section{Register}
+	\subsection{RegA}
+	Register für Operand A und das low-nibble des Ergebnisses.
+	Es handelt sich um ein Bi-Reg-4.
+	Die Arbitrierung des Registers liegt intern, solange busy=0 ist.
+	Das Ergebnis liegt am Ausgang an, sobald busy=0 wird.
+	
+	\subsection{RegB}
+	Register für Operand B und das high-nibble des Ergebnisses.
+	Es handelt sich um ein Bi-Reg-4.
+	Die Arbitrierung des Registers liegt intern, solange busy=0 ist.
+	Das Ergebnis liegt am Ausgang an, sobald busy=0 wird.
+	
+	\subsection{AccuA}
+	Akkumulatorregister für das low-nibble des Ergebnisses.
+	Es handelt sich um ein Uni-Reg-4.
+	Die Ausgänge des Registers können als Operand A verwendet werden.
+	
+	\subsection{AccuB}
+	Akkumulatorregister für das high-nibble des Ergebnisses.
+	Es handelt sich um ein Uni-Reg-4.
+	Die Ausgänge des Registers können als Operand B verwendet werden.
+	
+	\subsection{CMD}
+	Register für den Befehlscode.
+	Es handelt sich um ein Uni-Reg-3. Wir geschrieben sobald Start=1 gesetzt wird.
+	
+	\subsection{Flags}
+	Register für die Flags.
+	Es handelt sich um ein Uni-Reg-4.
+	Die Flags liegen am Ausgang an, sobald busy=0 wird.
+	
+	
+	\section{Modul-Beschreibung}
+	\subsection{74181}
+	Die 74181 dient zur Berchnung aller nativen ALU-Befehle außer der Mulitplikation.
+	
+	\subsection{MUL-4}
+	Ein 4x4 Bit Hardware-Mulitplizierer mit 8 Bit Ausagang.
+	
+	\subsection{Barrel-Shifter-8}
+	Ein 8-Bit Barrel-Shifter, der links/rechts rotieren/schieben um  0-7 bit kann.
+	\subsection{Bi-Reg-n}
+	
+	\subsection{Uni-Reg-n}
+	Ein 
+	
+	\subsection{MUX-nxm}
+	Multiplexer zum Schalten von n Signalquellen mit je m Bits.
+	
+	\subsection{MC-PROM}
+	\subsubsection{Programmierung}
+	
+	\section{Detailblockschaltbild}
+	Für das innere Schaltbild siehe Seite \pageref{inneresBlockschaltbild}.
+	\begin{figure}[htbp]
+		\begin{center}
+			\includegraphics[width=\textwidth]{inneresBlockschaltbild}
+			\label{inneresBlockschaltbild}
+			\caption{Inneres Blockschaltbild}
+		\end{center}
+	\end{figure}
+	
 \end{document}
