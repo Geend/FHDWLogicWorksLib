@@ -1,0 +1,7 @@
+Circuit:	ALU-4
+Date:		Wednesday, March 09, 2016 - 9:25 PM
+
+Device Type        Num. Used   Value    References
+
+ADD-CAL-4_Q           4                 D00005 D00006 D00007 D00008
+AND-Buffer            4                 D00001 D00002 D00003 D00004

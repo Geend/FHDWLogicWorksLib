@@ -1,0 +1,7 @@
+Circuit:	ALU-4
+Date:		Wednesday, March 09, 2016 - 9:27 PM
+
+Device Type        Num. Used   Value    References
+
+CLA-4                 1                 D00005
+FullAdder_Q           4                 D00001 D00002 D00003 D00004

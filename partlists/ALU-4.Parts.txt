@@ -1,0 +1,26 @@
+Circuit:	ALU-4
+Date:		Wednesday, March 09, 2016 - 9:22 PM
+
+Device Type        Num. Used   Value    References
+
+74_181                1                 D00021
+AND-2                 1                 MCE
+AND-2 (1-Inv)         2                 D00001 D00016
+AND-3 (1-Inv)         1                 MUL
+Barrel-Shifter-8      1                 D00003
+Bi-Reg-4              2                 RegA RegB
+D Flip Flop n.i. RS   1                 DEV1
+MUL-4_Q               1                 D00022
+MUX-2x16              2                 D00017 D00018
+MUX-4x4               2                 D00005 D00006
+MUX-4x5               1                 D00014
+Mux-2x4 T.S.          3                 11 22 DEV2
+Mux-8                 5                 M S0 S1 S2 S3
+NOR-4                 1                 D00009
+NOR-8                 1                 D00008
+NOT                   2                 D00007 D00020
+Uni-Reg-3_Q           1                 D00019
+Uni-Reg-4_Q           3                 AccuA AccuB Flag
+Uni-Reg-5_Q           1                 D00015
+XOR-2                 5                 D00002 D00010 D00011 D00012 D00013
+mc_v2                 1                 D00004
